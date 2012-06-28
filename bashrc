@@ -40,4 +40,4 @@ UWHITE='\e[4;37m'
 EDITOR="vim"
 
 # Prompt settings
-export PS1="\[$RED\]\[$BLUE\]$(date -j +%H)\[$MAGENTA\]:\[$BLUE\]$(date -j +%M)\[$MAGENTA\]:\[$BLUE\]$(date -j +%S)\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\W        \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m\[$YELLOW\])') \n \[$GREEN\]→\[$NO_COLOR\] "
+export PS1="\[$RED\]\[$BLUE\]$(date -j +%H)\[$MAGENTA\]:\[$BLUE\]$(date -j +%M)\[$MAGENTA\]:\[$BLUE\]$(date -j +%S)\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\W        \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m%u\[$YELLOW\])') \n \[$GREEN\]→\[$NO_COLOR\] "
