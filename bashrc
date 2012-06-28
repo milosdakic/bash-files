@@ -47,17 +47,18 @@ since_last_commit() {
   minutes=$((elapsed/60))
   seconds=$((elapsed-(minutes*60)))
   
+  # Work out if we haven't commited for a while
   if [ "$minutes" -gt 15 ]; then
-    COLOR=${ERED}
+    COLOR=${RED}
   elif [ "$minutes" -gt 8 ]; then
-    COLOR=${EYELLOW}
+    COLOR=${YELLOW}
   else
-    COLOR=${EGREEN}
+    COLOR=${GREEN}
   fi
-  
-  printf "${NO_COLOR}E: ${COLOR}${minutes}m ${seconds}s"
+  # Pretty print the timing
+  printf "${NO_COLOR}${COLOR}${minutes}m${seconds}s${NO_COLOR}"
 }
 
 
 # Prompt settings
-export PS1="\[$RED\]\[$BLUE\]$(date -j +%H)\[$MAGENTA\]:\[$BLUE\]$(date -j +%M)\[$MAGENTA\]:\[$BLUE\]$(date -j +%S)\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\W     \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m%u\[$YELLOW\])')   \$(since_last_commit) \n \[$GREEN\]→\[$NO_COLOR\] "
+export PS1="\[$RED\]\[$BLUE\]$(date -j +%H)\[$MAGENTA\]:\[$BLUE\]$(date -j +%M)\[$MAGENTA\]:\[$BLUE\]$(date -j +%S)\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\W     \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m%u\[$RED\]:$(since_last_commit))')    \n \[$GREEN\]→\[$NO_COLOR\] "
