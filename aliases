@@ -29,6 +29,6 @@ alias g='git status'
 
 # Other
 alias ga='git add .'
-alias gc='git commit -m $1'
+alias gc='git commit $1'
 alias gnp="git-notpushed"
 alias gl='git log --graph --pretty="format:%C(red)%h%Cblue%d%Creset %s %C(yellow) %an, %ar%Creset"'
