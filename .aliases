@@ -1,34 +1,40 @@
 #!/bin/bash
+. ~/.contracting
+
 
 # Utilities
-alias reload='source $HOME/.spaceship/aliases'
-
-# Mappings
+alias reload='source $HOME/.aliases'
+alias setitle='set_tab_title'
+# Shortcuts
 alias c='clear'
 alias l='ls -la'
-alias m='mvim'
-alias s='cd ..'
-alias ag='cd AFL/github/'
+alias ..='cd ..'
+alias m="mate ."
+alias oo="open ."
 
 # Git
-# Diff
+## Diff
 alias gd='git diff'
 alias gdm='git diff master'
 alias gdon='git diff --name-only origin/master'
 
-# Send/Receive
+## Send/Receive
 alias gco='git checkout'
 alias gp='git push'
 alias gpl='git pull'
 alias gpr='git pull --rebase'
 
-# Status
+## Status
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
 
-# Other
+## Other
 alias ga='git add .'
 alias gc='git commit $1'
 alias gnp="git-notpushed"
 alias gl='git log --graph --pretty="format:%C(red)%h%Cblue%d%Creset %s %C(yellow) %an, %ar%Creset"'
+
+function set_tab_title() {
+  echo -e "\033]1;"$1"\007"
+}

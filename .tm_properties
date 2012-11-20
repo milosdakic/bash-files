@@ -1,0 +1,15 @@
+# Variables
+TM_FULLNAME		= "Milos Dakic"
+TM_ORGANIZATION	= "Milos Dakic"
+TM_GIT			= "/usr/bin/git"
+
+fontName		= "Menlo"
+fontSize		= 11
+
+spellChecking	= true
+showInvisibles	= true
+softTabs		= true
+tabSize			= 2
+
+[ "*.{txt,md,mdown,markdown}" ]
+softWrap 		= true

@@ -62,3 +62,7 @@ since_last_commit() {
 
 # Prompt settings
 export PS1="\[$RED\]\[$BLUE\]$(date -j +%H)\[$MAGENTA\]:\[$BLUE\]$(date -j +%M)\[$MAGENTA\]:\[$BLUE\]$(date -j +%S)\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\W     \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m%u\[$RED\]:$(since_last_commit))')    \n \[$GREEN\]→\[$NO_COLOR\] "
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+NODE_PATH="/usr/local/lib/node_modules"
