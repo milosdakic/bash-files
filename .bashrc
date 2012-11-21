@@ -36,8 +36,8 @@ UCYAN='\e[4;36m'
 UWHITE='\e[4;37m'
 
 # Editor settings
-#EDITOR="mate"
-EDITOR="vim"
+EDITOR="mate"
+# EDITOR="vim"
 
 
 since_last_commit() {
