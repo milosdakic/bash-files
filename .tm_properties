@@ -4,7 +4,7 @@ TM_ORGANIZATION	= "Milos Dakic"
 TM_GIT			= "/usr/bin/git"
 
 fontName		= "Menlo"
-fontSize		= 11
+fontSize		= 10
 
 spellChecking	= true
 showInvisibles	= true

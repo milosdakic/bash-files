@@ -40,28 +40,32 @@ EDITOR="mate"
 # EDITOR="vim"
 
 
-since_last_commit() {
+function minutes_since_last_commit {
   now=`date +%s`
   last_commit=`git log --pretty=format:'%at' -1`
-  elapsed=$((now-last_commit))
-  minutes=$((elapsed/60))
-  seconds=$((elapsed-(minutes*60)))
-  
-  # Work out if we haven't commited for a while
-  if [ "$minutes" -gt 15 ]; then
-    COLOR=${RED}
-  elif [ "$minutes" -gt 8 ]; then
-    COLOR=${YELLOW}
-  else
-    COLOR=${GREEN}
+  seconds_since_last_commit=$((now-last_commit))
+  minutes_since_last_commit=$((seconds_since_last_commit/60))
+  echo $minutes_since_last_commit
+}
+
+last_commit_prompt() {
+  if [ -n "$g" ]; then
+    local MINUTES_SINCE_LAST_COMMIT=`minutes_since_last_commit`
+    if [ "$MINUTES_SINCE_LAST_COMMIT" -gt 30 ]; then
+        local COLOR=${RED}
+    elif [ "$MINUTES_SINCE_LAST_COMMIT" -gt 10 ]; then
+        local COLOR=${YELLOW}
+    else
+        local COLOR=${GREEN}
+    fi
+    local SINCE_LAST_COMMIT="${COLOR}$(minutes_since_last_commit)m${NORMAL}"
+    echo ${SINCE_LAST_COMMIT}
   fi
-  # Pretty print the timing
-  printf "${NO_COLOR}${COLOR}${minutes}m${seconds}s${NO_COLOR}"
 }
 
 
 # Prompt settings
-export PS1="\[$RED\]\[$BLUE\]\\T\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\\W     \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m%u\[$RED\]:$(since_last_commit)\[$YELLOW\])')\n \[$GREEN\]\\$\[$NO_COLOR\] "
+export PS1="\[$RED\]\[$BLUE\]\\T\[$RED\] ›   \[$WHITE\]\u\[$GREEN\]@\[$RED\]\\W     \$(vcprompt -f '\[$YELLOW\](\[$BLUE\]%n\[$ERED\]:\[$BLUE\]%b\[$RED\]:\[$WHITE\]%r\[$RED\]%m%u\[$YELLOW\])') \n \[$GREEN\]\\$\[$NO_COLOR\] "
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
