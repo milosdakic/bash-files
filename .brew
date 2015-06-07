@@ -7,11 +7,12 @@ brew update
 brew upgrade
 
 # Install packages
-brew install mercurial
 brew install vcprompt
 brew install redis
 brew install mongodb
-brew install imagemagick
+brew install node
+brew install nvm
+brew install git
 
 # Remove outdated versions from the cellar
 brew cleanup
