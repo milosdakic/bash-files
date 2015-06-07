@@ -1,3 +1,0 @@
-[submodule "vimax"]
-	path = vimax
-	url = git@github.com:milosdakic/vim-portable.git
