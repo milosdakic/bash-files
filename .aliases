@@ -15,18 +15,15 @@ alias oo="open ."
 alias gd='git diff'
 alias gdm='git diff master'
 alias gdon='git diff --name-only origin/master'
-
 ## Send/Receive
 alias gco='git checkout'
 alias gp='git push'
 alias gpl='git pull'
 alias gpr='git pull --rebase'
-
 ## Status
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
-
 ## Other
 alias ga='git add .'
 alias gc='git commit $1'
